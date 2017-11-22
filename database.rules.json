@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "admins": {
+      ".read": false,
+      ".write": false
+    },
+    "notifications": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins/' + auth.uid).exists()"
+    }
+  }
+}
