@@ -14,6 +14,7 @@
     "firebase": "^4.6.2",
     "firebaseui": "^2.5.0",
     "moment": "^2.19.2",
+    "tinycolor2": "^1.4.1",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1",
     "vuetify": "^0.17.2",
