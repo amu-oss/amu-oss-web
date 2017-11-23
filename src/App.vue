@@ -88,7 +88,7 @@
           title: 'Inspire'
         }],
         miniVariant: false,
-        title: 'AMU OSS',
+        title: '< AMU OSS />',
         notify: Snackbar.model
       }
     }

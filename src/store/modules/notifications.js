@@ -17,6 +17,9 @@ export default {
       bindFirebaseRef('notifications', ref, callbacks);
       commit('setNotificationsRef', ref);
     }),
+    createNotification: ({ state }, notification) => {
+      return state.notificationsRef.push(notification);
+    },
     deleteNotification: ({ state }, id) => {
       return state.notificationsRef.child(id).remove();
     }

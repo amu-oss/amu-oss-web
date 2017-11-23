@@ -27,11 +27,11 @@
   import tinycolor from 'tinycolor2'
 
   function getColor(notification) {
-    return notification.color || '#33b5e5'
+    return notification.color || '#bbb'
   }
 
   function getTitleColor(notification) {
-    return tinycolor(getColor(notification)).isLight() ? '#333' : '#fff';
+    return tinycolor(getColor(notification)).getLuminance() > 0.4 ? '#333' : '#fff';
   }
 
   export default {

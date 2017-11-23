@@ -8,6 +8,12 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <v-layout row justify-center>
+      <v-btn color="pink" dark fab v-if="isAdmin" @click="showCreateDialog = true">
+        <v-icon>add</v-icon>
+      </v-btn>
+    </v-layout>
+    <CreateNotification :show-dialog="showCreateDialog" v-on:close="showCreateDialog = false" />
     <DeleteNotification :selected-to-delete="selectedToDelete" v-on:clear-selected="selectedToDelete = null" />
     <v-layout row>
       <v-flex xs12 sm10 md8 lg6 xl4 offset-sm1 offset-md2 offset-lg3 offset-xl4>
@@ -26,23 +32,26 @@
 <script>
   import Vuex from 'vuex'
   import Notification from './Notification'
+  import CreateNotification from './CreateNotification'
   import DeleteNotification from './DeleteNotification'
 
   export default {
     data () {
       return {
         loading: true,
+        showCreateDialog: false,
         selectedToDelete: null
       }
     },
     components: {
       Notification,
+      CreateNotification,
       DeleteNotification
     },
-    computed: Vuex.mapGetters(['notifications']),
+    computed: Vuex.mapGetters(['notifications', 'isAdmin']),
     methods: {
       deleteNotification (key) {
-          this.selectedToDelete = key;
+        this.selectedToDelete = key;
       }
     },
     created () {

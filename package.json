@@ -13,6 +13,7 @@
     "dialog-polyfill": "^0.4.9",
     "firebase": "^4.6.2",
     "firebaseui": "^2.5.0",
+    "lodash": "^4.17.4",
     "moment": "^2.19.2",
     "tinycolor2": "^1.4.1",
     "vue": "^2.3.3",
