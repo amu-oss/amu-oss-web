@@ -1,14 +1,10 @@
 <template>
   <v-container>
     <v-layout row v-if="user">
-      <v-flex xs12 sm8 lg6 xl4 offset-sm2 offset-lg3 offset-xl4>
+      <v-flex xs12 sm8 lg6 xl4 offset-sm2 offset-lg3 offset-xl4 class="text-xs-center">
         <v-card>
             <div class="display-1 text-xs-center pt-3">You are already logged in!</div>
-            <v-layout row wrap class="mt-2 pb-2">
-              <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-                  <v-btn error large @click="logout">Logout</v-btn>
-              </v-flex>
-            </v-layout>
+            <v-btn error large @click="logout" class="ma-3">Logout</v-btn>
           </v-card>
       </v-flex>
     </v-layout>
