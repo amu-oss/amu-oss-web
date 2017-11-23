@@ -48,46 +48,22 @@
       </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        light
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
         <v-slide-y-transition mode="out-in">
-          <v-layout column align-center>
-            <img src="/static/img/v.png" alt="Vuetify.js" class="mb-5">
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout>
+          <router-view></router-view>
         </v-slide-y-transition>
+        <v-snackbar
+          :timeout="notify.timeout"
+          :color="notify.color"
+          v-model="notify.snackbar"
+        >
+          {{ notify.text }}
+          <v-btn dark flat @click.native="notify.snackbar = false">Close</v-btn>
+        </v-snackbar>
       </v-container>
     </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
@@ -95,6 +71,8 @@
 </template>
 
 <script>
+  import Snackbar from './utils/snackbar'
+
   export default {
     data () {
       return {
@@ -106,9 +84,8 @@
           title: 'Inspire'
         }],
         miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Vuetify.js',
+        notify: Snackbar.model
       }
     }
   }

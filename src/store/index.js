@@ -4,9 +4,14 @@ import Vuex from 'vuex'
 import { database, auth } from 'firebase'
 import { firebaseMutations } from 'vuexfire'
 
+import notifications from './modules/notifications'
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  modules: {
+    notifications
+  },
   state: {
     user: null,
     isAdmin: false

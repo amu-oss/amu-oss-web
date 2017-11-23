@@ -1,8 +1,8 @@
 {
   "rules": {
     "admins": {
-      ".read": false,
-      ".write": false
+      ".read": "auth != null && root.child('admins/' + auth.uid).exists()",
+      ".write": "auth != null && root.child('admins/' + auth.uid).exists()"
     },
     "notifications": {
       ".read": true,
