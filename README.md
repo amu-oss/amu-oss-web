@@ -1,5 +1,7 @@
 # amu-oss
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/amu-oss/amu-oss-web.svg)](https://greenkeeper.io/)
+
 > A Vue.js project
 
 ## Build Setup
